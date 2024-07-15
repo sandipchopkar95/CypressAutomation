@@ -1,9 +1,10 @@
-
+import ProductPage from "../e2e/PageObject/ProductPage"
 
 Cypress.Commands.add('selectProduct', (productName) => {
-    cy.get('h4.card-title').each(($el, index, $list) => {
-        if ($el.text().includes('Blackberry')) {
-            cy.get('button.btn-info').eq(index).click()
+    const productPage=new ProductPage()
+    productPage.getproductNames().each(($el, index, $list) => {
+        if ($el.text().includes(productName)) {
+            productPage.getAddButtons().eq(index).click()
         }
     })
 })

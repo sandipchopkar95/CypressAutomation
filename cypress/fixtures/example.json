@@ -1,5 +1,6 @@
 {
   "name": "Sandip Chopkar",
   "email": "test@gmail.com",
-  "gender":"Male"
+  "gender":"Male",
+  "productName":["Blackberry","iphone X"]
 }
