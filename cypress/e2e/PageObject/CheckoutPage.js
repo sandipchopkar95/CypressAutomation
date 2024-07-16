@@ -1,4 +1,13 @@
 class CheckoutPage {
+
+    getSelectedProductsPrice() {
+        return cy.get('td:nth-child(4) strong')
+    }
+
+    getTotalPrice() {
+        return cy.get('td:nth-child(5) strong')
+    }
+
     getAddedProductNames() {
         return cy.get('h4.media-heading')
     }
@@ -25,6 +34,7 @@ class CheckoutPage {
     getSucessMessage() {
         return cy.get('div.alert-success')
     }
+
 }
 
 export default CheckoutPage
