@@ -1,7 +1,7 @@
 import ProductPage from "../e2e/PageObject/ProductPage"
 
 Cypress.Commands.add('selectProduct', (productName) => {
-    const productPage=new ProductPage()
+    const productPage = new ProductPage()
     productPage.getproductNames().each(($el, index, $list) => {
         if ($el.text().includes(productName)) {
             productPage.getAddButtons().eq(index).click()
@@ -9,7 +9,15 @@ Cypress.Commands.add('selectProduct', (productName) => {
     })
 })
 
-
+//storing ligin session
+Cypress.Commands.add('LoginAPI', () => {
+    cy.request('POST', 'https://rahulshettyacademy.com/api/ecom/auth/login',
+        { userEmail: "sandipchopkar789@gmail.com", userPassword: "Menthol@7276" })
+        .then(function (response) {
+            expect(response.status).to.eq(200)
+            Cypress.env('token', response.body.token)
+        })
+})
 
 
 
